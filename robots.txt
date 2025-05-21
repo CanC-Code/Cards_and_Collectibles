@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://canc-code.github.io/Cards_and_Collectibles/sitemap.xml
