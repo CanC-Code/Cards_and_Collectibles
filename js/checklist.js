@@ -38,4 +38,4 @@ function renderChecklist(cards) {
   });
 }
 
-loadCSV("data/cards/pokemon_lost_origin.csv").then(renderChecklist);
+loadCSV("../data/cards/pokemon_lost_origin.csv").then(renderChecklist);
