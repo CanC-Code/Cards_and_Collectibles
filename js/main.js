@@ -1,12 +1,12 @@
 // js/main.js
 
-// Import Firebase modules
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
-// === Firebase Config ===
-// For GitHub Pages, the API key is exposed in JS
-// Make sure it is restricted in Firebase to your domain and needed APIs only
+// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyBn0lIS4b2RcEFguiMeXQEIs4HbW1pyhD4", // restricted key
   authDomain: "ccvo-users.firebaseapp.com",
@@ -20,5 +20,13 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const storage = getStorage(app);
 
-// Firebase services can now be used safely within your site
+// App Check (optional but recommended)
+import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
+const appCheck = initializeAppCheck(app, {
+  provider: new ReCaptchaV3Provider('YOUR_RECAPTCHA_SITE_KEY'), // replace with your reCAPTCHA key
+  isTokenAutoRefreshEnabled: true
+});
