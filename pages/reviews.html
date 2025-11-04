@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reviews | CCVO</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script type="module" src="../js/reviews.js" defer></script>
+  <script type="module" src="../js/main.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-left">
+      <a href="index.html" class="site-title">Cards and Collectibles</a>
+    </div>
+    <div class="header-right">
+      <button id="menu-toggle" class="hamburger">&#9776;</button>
+      <nav id="site-nav" class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="checklist.html">Checklist</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="local-products.html">Local Products</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-title">
+      <h1>User Reviews</h1>
+      <p class="subtitle">Share your thoughts on cards, collectibles, and products.</p>
+    </section>
+
+    <section class="reviews-container">
+      <p>Reviews will be displayed here.</p>
+      <div id="reviews-list"></div>
+      <input type="text" id="item-id" placeholder="Card or Product ID">
+      <textarea id="review-text" placeholder="Write your review"></textarea>
+      <button id="save-review">Save Review</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Cards and Collectibles | CCVO</p>
+  </footer>
+</body>
+</html>
