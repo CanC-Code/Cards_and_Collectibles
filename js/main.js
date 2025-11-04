@@ -1,10 +1,9 @@
-// js/main.js
-
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
+import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 
 // Firebase configuration
 const firebaseConfig = {
@@ -24,9 +23,20 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 const storage = getStorage(app);
 
-// App Check (optional but recommended)
-import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
-const appCheck = initializeAppCheck(app, {
-  provider: new ReCaptchaV3Provider('YOUR_RECAPTCHA_SITE_KEY'), // replace with your reCAPTCHA key
+// App Check (replace YOUR_RECAPTCHA_SITE_KEY)
+initializeAppCheck(app, {
+  provider: new ReCaptchaV3Provider('YOUR_RECAPTCHA_SITE_KEY'),
   isTokenAutoRefreshEnabled: true
+});
+
+// Hamburger menu toggle
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("site-nav");
+
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("nav-visible");
+    });
+  }
 });
