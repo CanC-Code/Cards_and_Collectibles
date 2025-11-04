@@ -5,9 +5,10 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
 // === Firebase Config ===
-// API key is loaded from environment variable at build time
+// For GitHub Pages, the API key is exposed in JS
+// Make sure it is restricted in Firebase to your domain and needed APIs only
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  apiKey: "AIzaSyBn0lIS4b2RcEFguiMeXQEIs4HbW1pyhD4", // restricted key
   authDomain: "ccvo-users.firebaseapp.com",
   projectId: "ccvo-users",
   storageBucket: "ccvo-users.firebasestorage.app",
@@ -20,4 +21,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
-// You can now use Firebase services (Auth, Firestore, Storage, etc.) as needed
+// Firebase services can now be used safely within your site
