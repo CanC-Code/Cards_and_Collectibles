@@ -23,20 +23,23 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 const storage = getStorage(app);
 
-// App Check (replace YOUR_RECAPTCHA_SITE_KEY)
-initializeAppCheck(app, {
-  provider: new ReCaptchaV3Provider('YOUR_RECAPTCHA_SITE_KEY'),
+// App Check (optional)
+const appCheck = initializeAppCheck(app, {
+  provider: new ReCaptchaV3Provider('YOUR_RECAPTCHA_SITE_KEY'), // replace with your reCAPTCHA key
   isTokenAutoRefreshEnabled: true
 });
 
-// Hamburger menu toggle
-document.addEventListener("DOMContentLoaded", () => {
-  const menuToggle = document.getElementById("menu-toggle");
-  const navLinks = document.getElementById("site-nav");
+console.log("Main script loaded.");
 
-  if (menuToggle && navLinks) {
-    menuToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("nav-visible");
-    });
-  }
-});
+// Helper to load CSVs (relative paths updated)
+export async function loadCSV(path) {
+  const response = await fetch(path);
+  const text = await response.text();
+  const [headerLine, ...lines] = text.trim().split("\n");
+  const headers = headerLine.split(",");
+
+  return lines.map(line => {
+    const values = line.split(",");
+    return Object.fromEntries(headers.map((h, i) => [h, values[i]]));
+  });
+}
