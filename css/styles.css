@@ -1,4 +1,4 @@
-/* Reset & base */
+/* ===== Reset & Base ===== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,17 +14,18 @@ body {
   min-height: 100vh;
 }
 
-/* Header */
+/* ===== Header ===== */
 .site-header {
   background: #1d4ed8;
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 12px 24px;
   position: sticky;
   top: 0;
   z-index: 100;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .site-title {
@@ -41,20 +42,21 @@ body {
 
 .nav-links {
   display: flex;
-  gap: 15px;
+  gap: 16px;
 }
 
 .nav-links a {
   color: white;
   text-decoration: none;
   font-weight: 600;
-  padding: 5px 10px;
-  border-radius: 5px;
-  transition: background 0.2s;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background 0.2s, transform 0.2s;
 }
 
 .nav-links a:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
 }
 
 .hamburger {
@@ -64,19 +66,20 @@ body {
   border: none;
   color: white;
   cursor: pointer;
+  margin-left: 12px;
 }
 
-/* Page title */
+/* ===== Page Title ===== */
 .page-title {
   text-align: center;
-  padding: 20px;
+  padding: 24px 20px;
   background: #e0e7ff;
-  margin: 15px 20px;
+  margin: 16px 20px;
   border-radius: 8px;
 }
 
 .page-title h1 {
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   font-size: 2rem;
 }
 
@@ -85,38 +88,38 @@ body {
   color: #555;
 }
 
-/* Hero Section */
+/* ===== Hero Section ===== */
 .hero {
   text-align: center;
-  padding: 30px 20px;
+  padding: 32px 20px;
   font-size: 1.1rem;
-  background: #fefefe;
+  background: #ffffff;
   margin: 0 20px 20px 20px;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Checklist Grid */
+/* ===== Checklist Grid ===== */
 .checklist-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 15px;
+  gap: 16px;
   padding: 20px;
 }
 
-/* Card Items */
+/* ===== Card Items ===== */
 .card-item {
   border: 1px solid #ccc;
   border-radius: 12px;
   background: white;
   text-align: center;
-  padding: 10px;
-  transition: 0.3s;
+  padding: 12px;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card-item:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .card-item img {
@@ -134,9 +137,10 @@ body {
 input[type="checkbox"] {
   margin-top: 8px;
   transform: scale(1.2);
+  cursor: pointer;
 }
 
-/* Reviews & Local Products Sections */
+/* ===== Reviews & Local Products Sections ===== */
 .reviews-container,
 .products-container {
   padding: 20px;
@@ -146,16 +150,43 @@ input[type="checkbox"] {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Footer */
+.reviews-container input,
+.reviews-container textarea {
+  width: 100%;
+  margin: 8px 0;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.reviews-container button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #1d4ed8;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.reviews-container button:hover {
+  background: #2563eb;
+  transform: scale(1.05);
+}
+
+/* ===== Footer ===== */
 footer {
   text-align: center;
-  padding: 15px;
+  padding: 16px;
   background: #1d4ed8;
   color: white;
   margin-top: auto;
+  font-size: 0.95rem;
 }
 
-/* Responsive */
+/* ===== Responsive ===== */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
@@ -164,8 +195,9 @@ footer {
     position: absolute;
     top: 60px;
     right: 20px;
-    padding: 10px 15px;
+    padding: 12px 16px;
     border-radius: 8px;
+    gap: 10px;
   }
 
   .nav-links.nav-visible {
@@ -174,7 +206,6 @@ footer {
 
   .hamburger {
     display: block;
-    margin-left: 10px;
   }
 }
 
